@@ -1,0 +1,22 @@
+{
+  "order": 1,
+  "question": "내가 입고 싶거나 친구들에게 추천하고 싶은 아이템은?",
+  "answers": [
+    {
+      "value": "반유니st 카고바지",
+      "scoring": ["cute", "hiphop"]
+    },
+    {
+      "value": "젤리슈즈",
+      "scoring": ["fresh", "exciting"]
+    },
+    {
+      "value": "임수정st 무지개니트",
+      "scoring": ["lonely", "sad"]
+    },
+    {
+      "value": "티니위니 곰돌이 가방",
+      "scoring": ["fresh", "sentimental"]
+    }
+  ]
+}
