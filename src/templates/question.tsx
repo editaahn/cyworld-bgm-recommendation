@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 export const query = graphql`
   query QuestionAndAnswers($pageNumber: Int!) {
-    dataJson(order: {eq: $pageNumber }) {
+    dataJson(order: { eq: $pageNumber }) {
       question
       answers {
         scoring
