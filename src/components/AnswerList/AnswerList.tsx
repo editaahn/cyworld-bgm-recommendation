@@ -1,9 +1,19 @@
 import React from 'react';
 
-export const AnswerList = ({ question, answers }) => {
+export type AnswerListProps = {
+  answers: {
+    value: string;
+    scoring: string[];
+  }[];
+};
+
+export const AnswerList = ({ answers }: AnswerListProps) => {
+  console.log(answers);
   return (
-    <div>
-      <h3>{question}</h3>
-    </div>
+    <ol>
+      {answers.map(({ value }) => (
+        <li>{value}</li>
+      ))}
+    </ol>
   );
 };

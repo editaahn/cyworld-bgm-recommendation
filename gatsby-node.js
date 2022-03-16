@@ -11,7 +11,7 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
     const pageNumber = index + 1;
     createPage({
       path: `/question/${pageNumber}`,
-      component: require.resolve("./src/templates/question.tsx"),
+      component: require.resolve("./src/templates/QuestionPage.tsx"),
       context: {
         pageNumber,
       },
