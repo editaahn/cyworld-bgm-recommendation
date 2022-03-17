@@ -8,7 +8,6 @@ export type AnswerListProps = {
 };
 
 export const AnswerList = ({ answers }: AnswerListProps) => {
-  console.log(answers);
   return (
     <ol>
       {answers.map(({ value }) => (
