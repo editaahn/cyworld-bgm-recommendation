@@ -1,7 +1,7 @@
 /** @type {import('gatsby').GatsbyConfig} */
 module.exports = {
   siteMetadata: {
-    title: `new`,
+    title: '2006년 타임머신 주크박스🎵',
     siteUrl: `https://www.yourdomain.tld`
   },
   plugins: [
