@@ -16,11 +16,7 @@ type StepStatus = {
   addScores: (items: ScoreValue[]) => void;
 };
 
-export const QuestionContext = createContext<StepStatus>({
-  currentQuestion: 1,
-  score: {},
-  addScores: () => console.log('before'),
-});
+export const QuestionContext = createContext({} as StepStatus);
 
 type QuestionProviderProps = {
   children: ReactNode;
@@ -40,9 +36,7 @@ export const QuestionProvider = ({ children }: QuestionProviderProps) => {
     });
   };
 
-  useEffect(() => console.log('hydrate')
-    , []);
-
   return <QuestionContext.Provider value={{ currentQuestion, score, addScores }}>{children}</QuestionContext.Provider>;
 };
 
+export const useQuestionContext = () => useContext(QuestionContext);
