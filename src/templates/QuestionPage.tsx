@@ -7,7 +7,7 @@ import { useMemo } from 'react';
 
 // createPage의 context를 통해 pageNumber가 전달됨
 export const query = graphql`
-  query QuestionAndAnswers($pageNumber: Int!) {
+  query QuestionPage($pageNumber: Int!) {
     dataJson(order: { eq: $pageNumber }) {
       question
       answers {
