@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
+import { createContext, ReactNode, useContext, useState } from 'react';
 
 export enum ScoreValue {
   CUTE = 'cute',
@@ -27,7 +27,6 @@ export const QuestionProvider = ({ children }: QuestionProviderProps) => {
   const [score, setScore] = useState({} as StepStatus['score']);
 
   const addScores = (values: ScoreValue[]) => {
-    console.log('clicked');
     setScore(prev => {
       return values.reduce((acc, value) => ({
         ...acc,
