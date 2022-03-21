@@ -1,0 +1,18 @@
+{
+  "order": 5,
+  "question": "내 마음을 가장 잘 대변해주는 이미지는?",
+  "answers": [
+    {
+      "value": "여자가 담배를 피는 이유",
+      "scoring": ["cute", "lonely"]
+    },
+    {
+      "value": "똥꼬좌",
+      "scoring": ["hiphop", "fresh"]
+    },
+    {
+      "value": "뉴턴",
+      "scoring": ["sad", "sentimental"]
+    }
+  ]
+}

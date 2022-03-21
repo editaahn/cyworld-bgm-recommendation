@@ -8,7 +8,7 @@ import { useMemo } from 'react';
 // createPage의 context를 통해 pageNumber가 전달됨
 export const query = graphql`
   query QuestionPage($pageNumber: Int!) {
-    dataJson(order: { eq: $pageNumber }) {
+    qnaJson(order: { eq: $pageNumber }) {
       question
       answers {
         scoring
@@ -23,7 +23,7 @@ export const query = graphql`
 
 type QuestionProps = {
   data: {
-    dataJson: {
+    qnaJson: {
       question: string;
     } & AnswerListProps;
     sitePage: {
@@ -34,7 +34,7 @@ type QuestionProps = {
 
 // query의 result가 data prop으로 전달됨
 const QuestionPage = ({ data }: QuestionProps) => {
-  const { question, answers } = data.dataJson;
+  const { question, answers } = data.qnaJson;
   const { path } = data.sitePage;
   const { addScores } = useQuestionContext();
 
