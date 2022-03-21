@@ -1,0 +1,22 @@
+{
+  "order": 5,
+  "question": "내 마음을 가장 잘 대변해주는 이미지는?",
+  "answers": [
+    {
+      "value": "횽왔다 굴다리 밑으로 텨와라 10초준다",
+      "scoring": ["cute", "hiphop"]
+    },
+    {
+      "value": "산을 표현한 수화",
+      "scoring": ["sentimental", "fresh"]
+    },
+    {
+      "value": "김래원 콧구멍짤",
+      "scoring": ["exciting", "lonely"]
+    },
+    {
+      "value": "신돈",
+      "scoring": ["sad"]
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "cute": {
+    "metaData": {
+      "name": "큐티",
+      "description": "이게 다 내가 귀여운 탓인가?"
+    },
+    "songs": [
+      {
+        "artist": "원더걸스",
+        "title": "So hot",
+        "url": ""
+      },
+      {
+        "artist": "허밍어반스테레오",
+        "title": "Hawaiian Couple",
+        "url": ""
+      }
+    ]
+  },
+  "hiphop": {
+    "metaData": {
+      "name": "힙합",
+      "description": "난 슬플 떈 힙합을 춰."
+    },
+    "songs": [
+      {
+        "artist": "에픽하이",
+        "title": "Love Love Love",
+        "url": ""
+      },
+      {
+        "artist": "프리스타일",
+        "title": "Y",
+        "url": ""
+      }
+    ]
+  },
+  "exciting": {
+    "metaData": {
+      "name": "흥",
+      "description": "흥부자 너어어~?"
+    },
+    "songs": [
+      {
+        "artist": "거북이",
+        "title": "비행기",
+        "url": ""
+      },
+      {
+        "artist": "2NE1",
+        "title": "I don’t care",
+        "url": ""
+      }
+    ]
+  },
+  "fresh": {
+    "metaData": {
+      "name": "상큼",
+      "description": "널.. 깨물어주고 싶어."
+    },
+    "songs": [
+      {
+        "artist": "Ex",
+        "title": "잘 부탁드립니다",
+        "url": ""
+      },
+      {
+        "artist": "권진원",
+        "title": "Happy birthday",
+        "url": ""
+      }
+    ]
+  },
+  "sentimental": {
+    "metaData": {
+      "name": "촉촉",
+      "description": "안구에.. 습기 찼나요?"
+    },
+    "songs": [
+      {
+        "artist": "박효신",
+        "title": "눈의 꽃",
+        "url": ""
+      },
+      {
+        "artist": "장연주",
+        "title": "여가",
+        "url": ""
+      }
+    ]
+  },
+  "sad": {
+    "metaData": {
+      "name": "그리움",
+      "description": "당신은 2007년을 그리워 하고 있어요"
+    },
+    "songs": [
+      {
+        "artist": "바이브",
+        "title": "그 남자 그 여자",
+        "url": ""
+      },
+      {
+        "artist": "별 & 나윤권",
+        "title": "안부",
+        "url": ""
+      }
+    ]
+  },
+  "lonely": {
+    "metaData": {
+      "name": "쓸쓸",
+      "description": "줄 수 있는 게 이 노래밖에 없다하아아~"
+    },
+    "songs": [
+      {
+        "artist": "브라운아이즈",
+        "title": "압구정골목길에서",
+        "url": ""
+      },
+      {
+        "artist": "버즈",
+        "title": "가시",
+        "url": ""
+      }
+    ]
+  }
+}

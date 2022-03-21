@@ -1,0 +1,26 @@
+{
+  "order": 4,
+  "question": "내가 예능 프로그램에 출연한다면?",
+  "answers": [
+    {
+      "value": "X맨",
+      "scoring": ["hiphop", "sad"]
+    },
+    {
+      "value": "상상플러스",
+      "scoring": ["sad", "exciting"]
+    },
+    {
+      "value": "쟁반노래방",
+      "scoring": ["cute", "lonely"]
+    },
+    {
+      "value": "헤이헤이헤이",
+      "scoring": ["sentimental", "fresh"]
+    },
+    {
+      "value": "만원의행복",
+      "scoring": ["hiphop", "exciting"]
+    }
+  ]
+}

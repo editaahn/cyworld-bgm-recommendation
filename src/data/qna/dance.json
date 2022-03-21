@@ -1,0 +1,26 @@
+{
+  "order": 3,
+  "question": "내가 제일 자신 있는 춤은?",
+  "answers": [
+    {
+      "value": "꼭지점 댄스",
+      "scoring": ["cute", "sad"]
+    },
+    {
+      "value": "비욘세 Single Ladies 춤",
+      "scoring": ["cute", "exciting"]
+    },
+    {
+      "value": "셔플 댄스",
+      "scoring": ["exciting", "hiphop"]
+    },
+    {
+      "value": "원더걸스 텔미 춤",
+      "scoring": ["sentimental", "lonely"]
+    },
+    {
+      "value": "테크토닉",
+      "scoring": ["sentimental", "fresh"]
+    }
+  ]
+}

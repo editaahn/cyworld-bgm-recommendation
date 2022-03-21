@@ -1,0 +1,22 @@
+{
+  "order": 2,
+  "question": "내가 입고 싶거나 친구들에게 추천하고 싶은 아이템은?",
+  "answers": [
+    {
+      "value": "줄무늬 카라티",
+      "scoring": ["cute", "sentimental"]
+    },
+    {
+      "value": "소라게모자",
+      "scoring": ["lonely", "exciting"]
+    },
+    {
+      "value": "아디다스 유로파 져지",
+      "scoring": ["lonely", "hiphop"]
+    },
+    {
+      "value": "아이돌st 컬러 스키니",
+      "scoring": ["fresh"]
+    }
+  ]
+}
