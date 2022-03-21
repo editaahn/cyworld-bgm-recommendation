@@ -9,15 +9,13 @@ import { useMemo } from 'react';
 export const query = graphql`
   query QuestionPage($pageNumber: Int!) {
     qnaJson(order: { eq: $pageNumber }) {
+      order
       question
       answers {
         scoring
         value
       }
     }
-    sitePage {
-      path
-    }  
   }
 `;
 
@@ -25,29 +23,20 @@ type QuestionProps = {
   data: {
     qnaJson: {
       question: string;
+      order: number;
     } & AnswerListProps;
-    sitePage: {
-      path: string;
-    }
   };
 };
 
 // query의 result가 data prop으로 전달됨
 const QuestionPage = ({ data }: QuestionProps) => {
-  const { question, answers } = data.qnaJson;
-  const { path } = data.sitePage;
+  const { order, question, answers } = data.qnaJson;
   const { addScores } = useQuestionContext();
-
-  const nextPath = useMemo(() => {
-    const splitedPath: (string | number)[] = path.split('/');
-    const nextStep = Number(splitedPath.pop()) + 1;
-    return splitedPath.concat(nextStep).join('/')
-  }, []);
 
   return (
     <Container>
       <Question>{question}</Question>
-      <AnswerList answers={answers} nextPath={nextPath} onClick={addScores} />
+      <AnswerList answers={answers} nextPath={`/question/${order + 1}`} onClick={addScores} />
     </Container>
   );
 };
