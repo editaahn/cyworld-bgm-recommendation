@@ -1,5 +1,6 @@
-{
-  "cute": {
+[
+  {
+    "id": "cute",
     "metaData": {
       "name": "큐티",
       "description": "이게 다 내가 귀여운 탓인가?"
@@ -17,7 +18,8 @@
       }
     ]
   },
-  "hiphop": {
+  {
+    "id": "hiphop",
     "metaData": {
       "name": "힙합",
       "description": "난 슬플 떈 힙합을 춰."
@@ -35,7 +37,8 @@
       }
     ]
   },
-  "exciting": {
+  {
+    "id": "exciting",
     "metaData": {
       "name": "흥",
       "description": "흥부자 너어어~?"
@@ -53,7 +56,8 @@
       }
     ]
   },
-  "fresh": {
+  {
+    "id": "fresh",
     "metaData": {
       "name": "상큼",
       "description": "널.. 깨물어주고 싶어."
@@ -71,7 +75,8 @@
       }
     ]
   },
-  "sentimental": {
+  {
+    "id": "sentimental",
     "metaData": {
       "name": "촉촉",
       "description": "안구에.. 습기 찼나요?"
@@ -89,7 +94,8 @@
       }
     ]
   },
-  "sad": {
+  {
+    "id": "sad",
     "metaData": {
       "name": "그리움",
       "description": "당신은 2007년을 그리워 하고 있어요"
@@ -107,7 +113,8 @@
       }
     ]
   },
-  "lonely": {
+  {
+    "id": "lonely",
     "metaData": {
       "name": "쓸쓸",
       "description": "줄 수 있는 게 이 노래밖에 없다하아아~"
@@ -125,4 +132,4 @@
       }
     ]
   }
-}
+]
