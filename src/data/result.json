@@ -2,7 +2,7 @@
   {
     "id": "cute",
     "metaData": {
-      "name": "큐티",
+      "name": "CUTE",
       "description": "이게 다 내가 귀여운 탓인가?"
     },
     "songs": [
@@ -22,7 +22,7 @@
     "id": "hiphop",
     "metaData": {
       "name": "힙합",
-      "description": "난 슬플 떈 힙합을 춰."
+      "description": "난 슬플 때 힙합을 춰."
     },
     "songs": [
       {
@@ -116,7 +116,7 @@
   {
     "id": "lonely",
     "metaData": {
-      "name": "쓸쓸",
+      "name": "쓸쓸함",
       "description": "줄 수 있는 게 이 노래밖에 없다하아아~"
     },
     "songs": [
