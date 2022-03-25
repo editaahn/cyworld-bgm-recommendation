@@ -1,22 +1,31 @@
-import { Link } from 'gatsby';
-import { ScoreValue } from '../../contexts/QuestionContext';
+import { ScoreValue, useQuestionContext } from '../../contexts/QuestionContext';
 
 export type AnswerListProps = {
   answers: {
     value: string;
     scoring: ScoreValue[];
   }[];
-  nextPath: string;
-  onClick: (values: ScoreValue[]) => void;
+  nextPageNumber: number;
+  isLastPage: boolean;
 };
 
-export const AnswerList = ({ answers, nextPath, onClick }: AnswerListProps) => {
+export const AnswerList = ({ answers, nextPageNumber, isLastPage }: AnswerListProps) => {
+  const { addScores, setNextQuestion, getResult } = useQuestionContext();
+
+  // 이벤트 발생에 따른 state 변경
+  const onClick = (scoring: ScoreValue[]) => {
+    addScores(scoring);
+    if (isLastPage) {
+      getResult();
+      return;
+    }
+    setNextQuestion();
+  }
+
   return (
     <ol>
       {answers.map(({ value, scoring }) => (
-        <Link key={value} to={nextPath}>
-          <li onClick={() => onClick(scoring)}>{value}</li>
-        </Link>
+        <li onClick={() => onClick(scoring)} key={value}>{value}</li>
       ))}
     </ol>
   );

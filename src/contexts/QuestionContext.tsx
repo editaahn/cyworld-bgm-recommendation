@@ -1,4 +1,5 @@
-import { createContext, ReactNode, useContext, useState } from 'react';
+import { findKey } from 'lodash';
+import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
 export enum ScoreValue {
   CUTE = 'cute',
@@ -13,7 +14,10 @@ export enum ScoreValue {
 type StepStatus = {
   currentQuestion: number;
   score: Record<ScoreValue, number>;
+  finalResult: ScoreValue | null;
   addScores: (items: ScoreValue[]) => void;
+  setNextQuestion: () => void;
+  getResult: () => void;
 };
 
 export const QuestionContext = createContext({} as StepStatus);
@@ -23,8 +27,9 @@ type QuestionProviderProps = {
 };
 
 export const QuestionProvider = ({ children }: QuestionProviderProps) => {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [currentQuestion, setCurrentQuestion] = useState(1);
   const [score, setScore] = useState({} as StepStatus['score']);
+  const [testResult, setTestResult] = useState<ScoreValue | null>(null);
 
   const addScores = (values: ScoreValue[]) => {
     setScore(prev => {
@@ -35,7 +40,31 @@ export const QuestionProvider = ({ children }: QuestionProviderProps) => {
     });
   };
 
-  return <QuestionContext.Provider value={{ currentQuestion, score, addScores }}>{children}</QuestionContext.Provider>;
+  const setNextQuestion = () => {
+    setCurrentQuestion(prev => prev + 1);
+  };
+
+  const getResult = () => setTestResult(() => {
+    if (!score) {
+      return null;
+    }
+    const highestScore = Math.max(...Object.values(score));
+    return findKey(score, value => value === highestScore) as ScoreValue;
+  });
+
+  return (
+    <QuestionContext.Provider
+      value={{
+        currentQuestion,
+        score,
+        finalResult: testResult,
+        addScores,
+        setNextQuestion,
+        getResult
+      }}>
+      {children}
+    </QuestionContext.Provider>
+  );
 };
 
 export const useQuestionContext = () => useContext(QuestionContext);
