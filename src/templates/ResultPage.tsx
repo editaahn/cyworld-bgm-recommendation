@@ -9,7 +9,7 @@ export const query = graphql`
       }
       songs {
         artist
-        url
+        videoId
         title
       }
     }
@@ -25,7 +25,7 @@ type ResultPageProps = {
       };
       songs: {
         artist: string;
-        url: string;
+        videoId: string;
         title: string;
       }[];
     };
@@ -45,10 +45,16 @@ const ResultPage = ({ data }: ResultPageProps) => {
       <section>
         <p>{metaData.description}</p>
         <strong>{song.artist} - {song.title}</strong>
-        <a target="_blank" href={song.url}>들으러 가기</a>
         {/* TODO: 유튜브 연결 */}
+        <iframe width="560" height="315"
+          src={`https://www.youtube.com/embed/${song.videoId}`} 
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowFullScreen={true}
+        >
+        </iframe>
       </section>
-    </main>
+    </main >
   );
 };
 
