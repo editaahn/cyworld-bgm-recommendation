@@ -5,11 +5,10 @@ export type AnswerListProps = {
     value: string;
     scoring: ScoreValue[];
   }[];
-  nextPageNumber: number;
   isLastPage: boolean;
 };
 
-export const AnswerList = ({ answers, nextPageNumber, isLastPage }: AnswerListProps) => {
+export const AnswerList = ({ answers, isLastPage }: AnswerListProps) => {
   const { addScores, setNextQuestion, getResult } = useQuestionContext();
 
   // 이벤트 발생에 따른 state 변경

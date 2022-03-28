@@ -61,7 +61,6 @@ const QuestionPage = ({ data, pageContext }: QuestionProps) => {
       <Question>{question}</Question>
       <AnswerList
         answers={answers}
-        nextPageNumber={pageNumber + 1}
         isLastPage={isLastPage}
       />
     </Container>
