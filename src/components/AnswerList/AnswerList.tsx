@@ -1,15 +1,18 @@
 import { ScoreValue, useQuestionContext } from '../../contexts/QuestionContext';
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
+
+export type Answer = {
+  value: string;
+  scoring: ScoreValue[];
+  image?: IGatsbyImageData;
+};
 
 export type AnswerListProps = {
-  answers: {
-    value: string;
-    scoring: ScoreValue[];
-  }[];
-  nextPageNumber: number;
+  answers: Answer[];
   isLastPage: boolean;
 };
 
-export const AnswerList = ({ answers, nextPageNumber, isLastPage }: AnswerListProps) => {
+export const AnswerList = ({ answers, isLastPage }: AnswerListProps) => {
   const { addScores, setNextQuestion, getResult } = useQuestionContext();
 
   // 이벤트 발생에 따른 state 변경
@@ -20,12 +23,16 @@ export const AnswerList = ({ answers, nextPageNumber, isLastPage }: AnswerListPr
       return;
     }
     setNextQuestion();
-  }
+  };
 
   return (
     <ol>
-      {answers.map(({ value, scoring }) => (
-        <li onClick={() => onClick(scoring)} key={value}>{value}</li>
+      {answers.map(({ value, scoring, image }) => (
+        <li onClick={() => onClick(scoring)} key={value}>
+          {value}
+          {/* {image && <img src={image} />} */}
+          {image && <GatsbyImage image={image} alt={value} objectFit="contain" objectPosition="30%" />}
+        </li>
       ))}
     </ol>
   );

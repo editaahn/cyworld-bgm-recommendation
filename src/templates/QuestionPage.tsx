@@ -1,19 +1,33 @@
-import { AnswerList, AnswerListProps } from '../components/AnswerList/AnswerList';
+import { Answer, AnswerList, AnswerListProps } from '../components/AnswerList/AnswerList';
 import { graphql } from 'gatsby';
 import { Question } from '../components/Question';
 import styled from '@emotion/styled';
 import { useEffect } from 'react';
 import { useQuestionContext } from '../contexts/QuestionContext';
 import { navigate } from 'gatsby-link';
+import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 // createPage의 context를 통해 pageNumber가 전달됨
 export const query = graphql`
-  query QuestionPage($pageNumber: Int!) {
+  query QuestionPage($pageNumber: Int!, $regexToFindImage: String) {
     qnaJson(order: { eq: $pageNumber }) {
       question
       answers {
         scoring
         value
+      }
+    }
+    images: allFile(
+      filter: { name: { regex: $regexToFindImage }, relativePath: { regex: "images/answers/" } }
+    ) {
+      nodes {
+        childImageSharp {
+          gatsbyImageData(
+            width: 300
+            placeholder: DOMINANT_COLOR
+          )
+        }
+        name
       }
     }
   }
@@ -23,7 +37,9 @@ type QuestionProps = {
   data: {
     qnaJson: {
       question: string;
-    } & AnswerListProps;
+      answers: Pick<Answer, 'scoring' | 'value'>[];
+    };
+    images: { nodes: (IGatsbyImageData & { name: string })[]; };
   };
   pageContext: {
     pageNumber: number;
@@ -33,7 +49,16 @@ type QuestionProps = {
 
 // query의 result가 data prop으로 전달됨
 const QuestionPage = ({ data, pageContext }: QuestionProps) => {
-  const { question, answers } = data.qnaJson;
+  const { images, qnaJson: { question, answers } } = data;
+
+  const answersWithImage = answers.map((answer, index) => {
+    const imageData = images.nodes.find(image => Number(image.name.slice(-1)) === index + 1);
+    return {
+      ...answer,
+      image: imageData ? getImage(imageData) : undefined,
+    };
+  });
+
   const { pageNumber, isLastPage } = pageContext;
   const { currentQuestion, finalResult, getResult } = useQuestionContext();
 
@@ -60,8 +85,7 @@ const QuestionPage = ({ data, pageContext }: QuestionProps) => {
     <Container>
       <Question>{question}</Question>
       <AnswerList
-        answers={answers}
-        nextPageNumber={pageNumber + 1}
+        answers={answersWithImage}
         isLastPage={isLastPage}
       />
     </Container>
