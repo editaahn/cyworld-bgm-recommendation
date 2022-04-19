@@ -19,6 +19,7 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
       component: require.resolve("./src/templates/QuestionPage.tsx"),
       context: {
         pageNumber,
+        regexToFindImage: `/${pageNumber}-/`,
         isLastPage: questionCount === pageNumber,
       },
     });
