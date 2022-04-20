@@ -1,11 +1,11 @@
 import { Answer, AnswerList, AnswerListProps } from '../components/AnswerList/AnswerList';
 import { graphql } from 'gatsby';
-import { Question } from '../components/Question';
 import styled from '@emotion/styled';
 import { useEffect } from 'react';
 import { useQuestionContext } from '../contexts/QuestionContext';
 import { navigate } from 'gatsby-link';
 import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import { Background } from '../components/Background';
 
 // createPage의 context를 통해 pageNumber가 전달됨
 export const query = graphql`
@@ -24,6 +24,7 @@ export const query = graphql`
         childImageSharp {
           gatsbyImageData(
             width: 300
+            formats: [WEBP]
             placeholder: DOMINANT_COLOR
           )
         }
@@ -39,7 +40,7 @@ type QuestionProps = {
       question: string;
       answers: Pick<Answer, 'scoring' | 'value'>[];
     };
-    images: { nodes: (IGatsbyImageData & { name: string })[]; };
+    images: { nodes: (IGatsbyImageData & { name: string; })[]; };
   };
   pageContext: {
     pageNumber: number;
@@ -53,7 +54,7 @@ const QuestionPage = ({ data, pageContext }: QuestionProps) => {
 
   const answersWithImage = answers.map((answer, index) => {
     const imageData = images.nodes.find(image => Number(image.name.slice(-1)) === index + 1);
-    return {
+  return {
       ...answer,
       image: imageData ? getImage(imageData) : undefined,
     };
@@ -82,17 +83,32 @@ const QuestionPage = ({ data, pageContext }: QuestionProps) => {
   }, [finalResult]);
 
   return (
-    <Container>
-      <Question>{question}</Question>
-      <AnswerList
-        answers={answersWithImage}
-        isLastPage={isLastPage}
-      />
-    </Container>
+    <Background>
+      <Container>
+        <Question>{question}</Question>
+        <Spacing height={30} />
+        <AnswerList
+          answers={answersWithImage}
+          isLastPage={isLastPage}
+        />
+      </Container>
+    </Background>
   );
 };
 
 export default QuestionPage;
 
-const Container = styled.div`
+const Container = styled.main`
+  max-width: 90vw;
+  margin: 0 auto;
+  padding: 50px 0;
+`;
+
+const Question = styled.h2`
+  text-align: center;
+`;
+
+const Spacing = styled.div<{ width?: number; height?: number; }>`
+  width: ${props => props.width ?? 1}px;
+  height: ${props => props.height ?? 1}px;
 `;
