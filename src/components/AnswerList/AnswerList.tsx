@@ -34,10 +34,10 @@ export const AnswerList = ({ answers, isLastPage }: AnswerListProps) => {
           <AnswerText>{value}</AnswerText>
           <Spacing height={10} />
           {image &&
-              <GatsbyImage
-                image={image}
-                alt={value}
-              />
+            <GatsbyImage
+              image={image}
+              alt={value}
+            />
           }
         </Item>
       ))}
@@ -46,20 +46,20 @@ export const AnswerList = ({ answers, isLastPage }: AnswerListProps) => {
 };
 
 const List = styled.ul`
-  display: grid;
-  grid-gap: 30px;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: max(300px);
+  display: flex;
+  flex: auto;
   list-style: none;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 30px;
 `;
 
 const Item = styled.li`
-  width: 100%; 
-  display: flex; 
-  flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
 `;
 
 const AnswerText = styled.p`

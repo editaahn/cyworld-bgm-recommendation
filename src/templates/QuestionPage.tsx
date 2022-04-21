@@ -24,7 +24,6 @@ export const query = graphql`
         childImageSharp {
           gatsbyImageData(
             width: 300
-            formats: [WEBP]
             placeholder: DOMINANT_COLOR
           )
         }
@@ -99,7 +98,8 @@ const QuestionPage = ({ data, pageContext }: QuestionProps) => {
 export default QuestionPage;
 
 const Container = styled.main`
-  max-width: 90vw;
+  width: 90vw;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 50px 0;
 `;
